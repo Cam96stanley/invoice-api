@@ -1,9 +1,9 @@
 from decimal import Decimal
 import enum
 from datetime import datetime, date
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship, object_session
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import String, Integer, DateTime, func, ForeignKey, Date, Enum as SQLAEnum, Numeric, event
+from sqlalchemy import String, Integer, DateTime, func, ForeignKey, Date, Enum as SQLAEnum, Numeric
 from typing import List
 
 
