@@ -1,7 +1,7 @@
 from decimal import Decimal
 from sqlalchemy import event
 from sqlalchemy.orm import object_session
-from models import InvoiceItem, Invoice, db
+from app.models import InvoiceItem, Invoice, db
 
 @event.listens_for(InvoiceItem, "before_insert")
 @event.listens_for(InvoiceItem, "before_update")

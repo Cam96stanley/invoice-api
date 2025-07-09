@@ -11,7 +11,7 @@ def hash_password(plain_password: str) -> str:
   return bcrypt.generate_password_hash(plain_password).decode("utf-8")
 
 def check_password(plain_password: str, hashed_password: str) -> bool:
-  return bcrypt.check_password_hash(hash_password, plain_password)
+  return bcrypt.check_password_hash(hashed_password, plain_password)
 
 def generate_token(user_id):
   payload = {
@@ -37,7 +37,7 @@ def token_required(f):
       return jsonify({"message": "Token has expired!"}), 401
     
     try:
-      data = jwt.encode(token, current_app.config["SECRET_KEY"], algorithm=["HS256"])
+      data = jwt.decode(token, current_app.config["SECRET_KEY"], algorithms=["HS256"])
       user_id = data["sub"]
       
     except jose.exceptions.ExpiredSignatureError:
